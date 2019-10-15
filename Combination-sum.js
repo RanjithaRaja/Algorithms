@@ -1,5 +1,9 @@
+
+var finalResult = printSubsetSum([3,34,4,12,5,2], 0, 0, 9, [], [])
+
+console.log(finalResult);
+
 function printSubsetSum(arr, i, currentSum, sum, eachSet, result){
- 
   if(currentSum == sum && i==arr.length){
     var val = [...eachSet]
     result.push(val);
@@ -15,7 +19,3 @@ function printSubsetSum(arr, i, currentSum, sum, eachSet, result){
   }
   return result
 }
-
-var finalResult = printSubsetSum([3,34,4,12,5,2], 0, 0, 9, [], [])
-
-console.log(finalResult)
