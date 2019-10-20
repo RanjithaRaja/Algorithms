@@ -52,5 +52,5 @@ function coinExchange(amount, coins) {
   // console.log(dpMat[coins.length][amount])
   return dpMat[coins.length][amount]
 }
-var change = coinExchange(10, [10])
+var change = coinExchange(5, [1,2,5])
 console.log(change)
