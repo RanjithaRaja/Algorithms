@@ -1,5 +1,3 @@
-
-
 function coinExchange(amount, coins) {
   rowCount = amount + 1;
   colCount = coins.length + 1
