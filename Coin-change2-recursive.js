@@ -1,5 +1,7 @@
 
-// You are given coins of different denominations and a total amount of money. Write a function to compute the number of combinations that make up that amount. You may assume that you have infinite number of each kind of coin.
+// You are given coins of different denominations and a total amount of money. 
+// Write a function to compute the number of combinations that make up that amount. 
+// You may assume that you have infinite number of each kind of coin.
 
 // Example 1:
 
@@ -21,30 +23,27 @@
 // Output: 1
 
 function coinChange(amount, coins) {
-    var finalResult = printSubsetSum(coins, 0, 0, amount, [], [])
+    var finalResult = getNoOfComb(coins, 0, 0, amount, [], 0)
 
-    function printSubsetSum(arr, i, currentSum, sum, eachSet, result){
+    function getNoOfComb(arr, i, currentSum, sum, eachSet, result){
       if(currentSum > sum){
         return result
       }
 
       if(currentSum == sum && i==arr.length){
-        var val = [...eachSet]
-        result.push(val);
+        result++;
       }
 
       if(i < arr.length){
-        eachSet.push(arr[i]);
-        printSubsetSum(arr, i, currentSum+arr[i], sum, eachSet, result);
-
-        eachSet.pop();
-        printSubsetSum(arr, i+1, currentSum, sum, eachSet, result);
+        result = getNoOfComb(arr, i, currentSum+arr[i], sum, eachSet, result);
+        result = getNoOfComb(arr, i+1, currentSum, sum, eachSet, result);
       }
       return result
     }
     
-    return finalResult.length
+    return finalResult
 };
 
 var result = coinChange(5, [1,2,5])
+
 console.log(result)
