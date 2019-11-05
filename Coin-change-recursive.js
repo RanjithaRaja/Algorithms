@@ -13,8 +13,7 @@
 // Output: -1
 
 function coinChange(coins, amount) {
-  var initialResult = amount + 1 
-  var finalResult = FindMinCount(coins, 0, 0, amount, 0, initialResult)
+  var finalResult = FindMinCount(coins, 0, 0, amount, 0, amount + 1)
   function FindMinCount(coins, i, currentSum, amount, count, result) {
     // console.log(coins, i, currentSum, amount, count, result)
     if(amount == 0){
