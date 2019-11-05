@@ -20,40 +20,31 @@
 // Input: amount = 10, coins = [10] 
 // Output: 1
 
-function coinChange(coins, amount) {
-  var initialResult = amount + 1 
-  var finalResult = FindMinCount(coins, 0, 0, amount, 0, initialResult)
-  function FindMinCount(coins, i, currentSum, amount, count, result) {
-    // console.log(coins, i, currentSum, amount, count, result)
-    if(amount == 0){
-      return 0
-    }
+function coinChange(amount, coins) {
+    var finalResult = printSubsetSum(coins, 0, 0, amount, [], [])
 
-    if(currentSum > amount){
+    function printSubsetSum(arr, i, currentSum, sum, eachSet, result){
+      if(currentSum > sum){
+        return result
+      }
+
+      if(currentSum == sum && i==arr.length){
+        var val = [...eachSet]
+        result.push(val);
+      }
+
+      if(i < arr.length){
+        eachSet.push(arr[i]);
+        printSubsetSum(arr, i, currentSum+arr[i], sum, eachSet, result);
+
+        eachSet.pop();
+        printSubsetSum(arr, i+1, currentSum, sum, eachSet, result);
+      }
       return result
     }
+    
+    return finalResult.length
+};
 
-    if(currentSum == amount){
-      // console.log(result, count)
-      result = Math.min(count, result)
-      return result
-    }
-
-    if(i<=coins.length-1){
-      count++
-      result = FindMinCount(coins, i, currentSum+coins[i], amount, count, result)
-
-      count--
-      result = FindMinCount(coins, i+1, currentSum, amount, count, result)
-    }
-    return result
-  }
-
-  if(finalResult == initialResult){
-    return -1
-  }else{
-    return finalResult
-  }
-}
-
-console.log(coinChange([1,2,5], 5))
+var result = coinChange(5, [1,2,5])
+console.log(result)
