@@ -23,20 +23,20 @@
 // Output: 1
 
 function coinChange(amount, coins) {
-    var finalResult = getNoOfComb(coins, 0, 0, amount, [], 0)
+    var finalResult = getNoOfComb(coins, 0, amount, 0)
 
-    function getNoOfComb(arr, i, currentSum, sum, eachSet, result){
-      if(currentSum > sum){
+    function getNoOfComb(arr, i, sum, result){
+      if(sum < 0){
         return result
       }
 
-      if(currentSum == sum && i==arr.length){
+      if(sum == 0 && i==arr.length){
         result++;
       }
 
       if(i < arr.length){
-        result = getNoOfComb(arr, i, currentSum+arr[i], sum, eachSet, result);
-        result = getNoOfComb(arr, i+1, currentSum, sum, eachSet, result);
+        result = getNoOfComb(arr, i, sum-arr[i], result);
+        result = getNoOfComb(arr, i+1, sum, result);
       }
       return result
     }
