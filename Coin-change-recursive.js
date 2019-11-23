@@ -40,7 +40,7 @@ function coinChange(coins, amount) {
     return result
   }
 
-  if(finalResult == initialResult){
+  if(finalResult == amount + 1){
     return -1
   }else{
     return finalResult
