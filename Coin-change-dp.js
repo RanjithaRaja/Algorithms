@@ -24,25 +24,22 @@ function coinChange(coins, amount) {
       if(col==0){
         dpMat[row][col] = 0;
       }else{
-        dpMat[row][col] = amount+1
+        dpMat[row][col] = Infinity
       }
     }
   }
   
-  var i=0
   for(let row=1; row<=coins.length; row++){
-    var currentCoin = coins[i];
     for(let col=1; col<=amount; col++){
-      if(col - currentCoin >= 0){
-        dpMat[row][col] = Math.min(dpMat[row-1][col], 1+dpMat[row][col-currentCoin])
+      if(col - coins[row-1] >= 0){
+        dpMat[row][col] = Math.min(dpMat[row-1][col], 1+dpMat[row][col-coins[row-1]])
       }else{
         dpMat[row][col] = dpMat[row-1][col]
       }
     }
-    i++
   }
 
-  if(dpMat[coins.length][amount] == amount+1){
+  if(dpMat[coins.length][amount] == Infinity){
     return -1
   }else{
     return dpMat[coins.length][amount] 
