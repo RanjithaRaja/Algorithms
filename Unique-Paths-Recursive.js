@@ -20,7 +20,7 @@
 
 // Input: m = 7, n = 3
 // Output: 28
-7,3
+
 var finalResult = UniquePath(7,3)
 
 console.log(finalResult)
