@@ -1,20 +1,20 @@
-A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
+// A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
 
-The robot can only move either down or right at any point in time. The robot is trying to reach 
-the bottom-right corner of the grid (marked 'Finish' in the diagram below).
+// The robot can only move either down or right at any point in time. The robot is trying to reach 
+// the bottom-right corner of the grid (marked 'Finish' in the diagram below).
 
-Now consider if some obstacles are added to the grids. How many unique paths would there be?
+// Now consider if some obstacles are added to the grids. How many unique paths would there be?
 
-Note: m and n will be at most 100.
+// Note: m and n will be at most 100.
 
-Example 1:
+// Example 1:
 
-Input:
-[
-  [0,0,0],
-  [0,1,0],
-  [0,0,0]
-]
+// Input:
+// [
+//   [0,0,0],
+//   [0,1,0],
+//   [0,0,0]
+// ]
 
 var finalResult = UniquePath([[0,0], [0,0], [0,0]]);
 
